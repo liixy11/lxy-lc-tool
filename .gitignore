@@ -1,0 +1,27 @@
+﻿# Python virtual environment
+venv/
+
+# Environment variables
+.env
+
+# Chroma vector database
+chroma_db/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# IDE
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Distribution
+dist/
+build/
+*.egg-info/
