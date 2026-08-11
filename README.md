@@ -5,7 +5,7 @@
 ## 功能
 
 - 将文本文档切分并向量化存入 Chroma 向量数据库
-- 基于知识库内容进行智能问答
+- 可基于知识库内容进行智能问答
 - 支持多轮对话历史
 - 使用 BAAI/bge-m3 中文嵌入模型
 
@@ -21,8 +21,6 @@ cd lxy-langchain-cli-chat-tool
 python -m venv venv
 # Windows
 venv\Scripts\activate
-# Mac/Linux
-source venv/bin/activate
 
 ### 3. 安装依赖
 
@@ -60,9 +58,3 @@ python main.py
 2. python create.py 重建向量库
 3. python main.py 开始问答
 
-## 技术栈
-
-- LangChain - LLM 应用框架
-- Chroma - 向量数据库
-- BAAI/bge-m3 - 中文嵌入模型
-- OpenAI 兼容 API
