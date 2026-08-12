@@ -4,8 +4,8 @@
 
 ## 功能
 
-- 将文本文档切分并向量化存入 Chroma 向量数据库
-- 可基于知识库内容进行智能问答
+- 支持 .txt / .pdf / .docx / .md 多格式文档
+- 支持 /rag on|off 动态开关知识库
 - 支持多轮对话历史
 - 使用 BAAI/bge-m3 中文嵌入模型
 
@@ -13,8 +13,8 @@
 
 ### 1. 克隆仓库
 
-git clone https://github.com/liixy11/lxy-langchain-cli-chat-tool.git
-cd lxy-langchain-cli-chat-tool
+git clone https://github.com/liixy11/lxy-lc-tool.git
+cd lxy-lc-tool
 
 ### 2. 创建虚拟环境
 
@@ -24,7 +24,7 @@ venv\Scripts\activate
 
 ### 3. 安装依赖
 
-pip install python-dotenv langchain-openai langchain-core langchain-huggingface langchain-chroma langchain-community langchain-text-splitters
+pip install -r requirements.txt
 
 ### 4. 配置环境变量
 
@@ -38,7 +38,7 @@ MODEL_NAME=gpt-4o
 
 ### 5. 准备知识库
 
-将 .txt 文档放入 knowledges/ 目录（已内置一份考勤管理制度示例）。
+将 .txt / .pdf / .docx / .md 文档放入 knowledges/ 目录（已内置考勤管理制度示例）。
 
 ### 6. 创建向量数据库
 
@@ -54,7 +54,8 @@ python main.py
 
 ## 自定义知识库
 
-1. 替换 knowledges/ 目录下的 .txt 文件
+1. 将文档放入 knowledges/ 目录（支持 .txt / .pdf / .docx / .md）
 2. python create.py 重建向量库
 3. python main.py 开始问答
+4. 对话中输入 /rag on 开启知识库，/rag off 关闭
 
