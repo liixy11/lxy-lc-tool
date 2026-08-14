@@ -5,7 +5,7 @@
 ## 功能
 
 - 支持 .txt / .pdf / .docx / .md 多格式文档
-- 支持 /rag on|off 动态开关知识库
+- 支持 /rag on|off 动态开关知识库、/rag update 热更新
 - 支持多轮对话历史
 - 支持会话保存与恢复（/resume）
 - 使用 BAAI/bge-m3 中文嵌入模型
@@ -73,6 +73,7 @@ python main.py
 |------|------|
 | /rag on | 开启知识库检索（需先运行 create.py） |
 | /rag off | 关闭知识库检索 |
+| /rag update | 热更新知识库（重新扫描 knowledges/ 重建向量库） |
 | /resume | 列出历史会话并选择恢复 |
 
 会话记录自动保存在本地 `chat_sessions/` 目录（已加入 .gitignore，不会上传）。
