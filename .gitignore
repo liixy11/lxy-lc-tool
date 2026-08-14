@@ -1,4 +1,4 @@
-﻿# Python virtual environment
+# Python virtual environment
 venv/
 
 # Environment variables
@@ -6,6 +6,9 @@ venv/
 
 # Chroma vector database
 chroma_db/
+
+# Chat session history
+chat_sessions/
 
 # Python cache
 __pycache__/
