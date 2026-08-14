@@ -10,7 +10,7 @@ import shutil
 
 load_dotenv()
 
-def main():
+def create_rag():
     def load_documents(path):
         documents = []     # 用于存储所有文档对象
 
@@ -51,21 +51,28 @@ def main():
 
     # 如果本地已存在旧的Chroma数据库目录，则删除它（确保重新创建全新数据库）
     if os.path.exists("./chroma_db"):
-        shutil.rmtree("./chroma_db")
+        try:
 
+            shutil.rmtree("./chroma_db")
+
+        except PermissionError:
+
+            print("知识库正在使用，请稍后重试")
+            return False
     embeddings = HuggingFaceEmbeddings(                   #配置Embedding模型
         model_name="BAAI/bge-m3",
         model_kwargs={"device": "cpu"},
         encode_kwargs={"normalize_embeddings": True}
 )
 
-    db = Chroma.from_documents(                              #创建Chroma数据库
+    Chroma.from_documents(
         documents=docs,
         embedding=embeddings,
         persist_directory="./chroma_db"
     )
 
-    print("知识库创建完成")
+    print("知识库更新完成")
+    return True
 
 if __name__ == "__main__":
-    main()
+    create_rag()
